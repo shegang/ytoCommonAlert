@@ -1,7 +1,7 @@
 # ytoCommonAlert
 公共弹框组件
 引用方式如下：
-step 1:
+第一步:
 Add it in your root build.gradle at the end of repositories:
 allprojects {
 		repositories {
@@ -9,14 +9,14 @@ allprojects {
 			maven { url 'https://jitpack.io' }
 		}
 	}
-step 2:
+第二步:
 Add the dependency in your mainModel build.gradle
 dependencies {
 	        implementation 'com.github.shegang:ytoCommonAlert:1.0'
 	}
   
-step 3:
-in your xmllayout add:
+第三部集成引用:
+在你的布局文件中加入
       <com.yto.common.notice.marqueeview.MarqueeView
                       android:id="@+id/marqueeView"
                       android:layout_width="match_parent"
@@ -29,7 +29,7 @@ in your xmllayout add:
                       app:layout_constraintRight_toRightOf="parent"
                       app:layout_constraintTop_toTopOf="parent"
                       android:background="@drawable/bg_large_oval_radius"/>
-        
+ 在文件类中封装数据引用：  
   List<ComplexItemEntity> complexDatas = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
             complexDatas.add(new ComplexItemEntity("标题 " + i, "副标题 " + i, "时间 " + i));

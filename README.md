@@ -17,18 +17,18 @@ dependencies {
   
 step 3:
 in your xmllayout add:
- <com.yto.common.notice.marqueeview.MarqueeView
-        android:id="@+id/marqueeView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="50dp"
-        android:layout_marginRight="50dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/bg_large_oval_radius"/>
+      <com.yto.common.notice.marqueeview.MarqueeView
+                      android:id="@+id/marqueeView"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:layout_marginLeft="50dp"
+                      android:layout_marginRight="50dp"
+                      android:layout_marginTop="20dp"
+                      app:layout_constraintBottom_toBottomOf="parent"
+                      app:layout_constraintLeft_toLeftOf="parent"
+                      app:layout_constraintRight_toRightOf="parent"
+                      app:layout_constraintTop_toTopOf="parent"
+                      android:background="@drawable/bg_large_oval_radius"/>
         
   List<ComplexItemEntity> complexDatas = new ArrayList<>();
         for (int i = 0; i < 5; i++) {

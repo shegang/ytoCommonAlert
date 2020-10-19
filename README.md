@@ -4,6 +4,7 @@
 第一步:
 
 Add it in your root build.gradle at the end of repositories:
+
 allprojects {
 		repositories {
 			...
@@ -20,8 +21,8 @@ dependencies {
 	}
   
 第三部集成引用:
-在你的布局文件中加入：
 
+在你的布局文件中加入：
 
 <com.yto.common.notice.marqueeview.SimpleMarqueeView
         android:id="@+id/marqueeView2"

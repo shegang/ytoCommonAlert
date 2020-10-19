@@ -3,30 +3,47 @@ package com.yto.common.noticeappdemo;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import com.yto.common.notice.api.DataCallBack;
+import com.yto.common.notice.api.RetrofitUtil;
 import com.yto.common.notice.marqueeview.MarqueeFactory;
 import com.yto.common.notice.marqueeview.MarqueeView;
+import com.yto.common.notice.marqueeview.NoticeManager;
+import com.yto.common.notice.marqueeview.SimpleMF;
+import com.yto.common.notice.marqueeview.SimpleMarqueeView;
 import com.yto.common.notice.marqueeview.util.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import dialog.BindViewHolder;
+import dialog.DialogManager;
 import dialog.OnBindViewListener;
 import dialog.OnViewClickListener;
 import dialog.SGDialog;
 
 public class MainActivity extends AppCompatActivity {
     private MarqueeView<RelativeLayout, ComplexItemEntity> marqueeView;
+    private SimpleMarqueeView<String> marqueeView2;
+
+    private NoticeManager noticeManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         marqueeView = findViewById(R.id.marqueeView);
+        marqueeView2 = findViewById(R.id.marqueeView2);
+        noticeManager = new NoticeManager.Builder(this)
+                .init(marqueeView2)
+                .create();
         initMarqueeView();
+        new DialogManager(getSupportFragmentManager()).init(this);
     }
 
     private void initMarqueeView() {
@@ -59,14 +76,14 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                 })
-                .addOnClickListener(R.id.iv_close,R.id.iv_icon)
+                .addOnClickListener(R.id.iv_close, R.id.iv_icon)
                 .setOnViewClickListener(new OnViewClickListener() {
                     @Override
                     public void onViewClick(BindViewHolder viewHolder, View view, SGDialog tDialog) {
-                       if(view.getId() == R.id.iv_icon){
-                           //可对图片进行修改
-                           Toast.makeText(MainActivity.this,"点击了图片",Toast.LENGTH_LONG).show();
-                       }
+                        if (view.getId() == R.id.iv_icon) {
+                            //可对图片进行修改
+                            Toast.makeText(MainActivity.this, "点击了图片", Toast.LENGTH_LONG).show();
+                        }
                         tDialog.dismiss();
                     }
                 })

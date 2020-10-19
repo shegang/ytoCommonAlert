@@ -1,26 +1,44 @@
 package com.yto.common.notice.marqueeview;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.text.TextUtils;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 
 import androidx.annotation.AnimRes;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.yto.common.notice.MyWebView;
 import com.yto.common.notice.R;
+import com.yto.common.notice.api.DataCallBack;
+import com.yto.common.notice.api.RetrofitUtil;
+import com.yto.common.notice.entity.ComplexItemEntity;
 import com.yto.common.notice.marqueeview.util.AnimationListenerAdapter;
 import com.yto.common.notice.marqueeview.util.OnItemClickListener;
 import com.yto.common.notice.marqueeview.util.Util;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+
+import dialog.BindViewHolder;
+import dialog.OnBindViewListener;
+import dialog.OnViewClickListener;
+import dialog.SGDialog;
+import okhttp3.ResponseBody;
+import retrofit2.Call;
 
 /**
  * Created by GongWen on 16/12/20.
@@ -61,7 +79,13 @@ public class MarqueeView<T extends View, E> extends ViewFlipper implements Obser
             getInAnimation().setDuration(animDuration);
             getOutAnimation().setDuration(animDuration);
         }
+
         a.recycle();
+        setPadding(30,15,32,15);
+
+        if(getBackground() == null){
+            this.setBackgroundResource(R.drawable.bg_large_oval_radius);
+        }
         setOnClickListener(onClickListener);
     }
 
@@ -128,7 +152,7 @@ public class MarqueeView<T extends View, E> extends ViewFlipper implements Obser
     private final OnClickListener onClickListener = new OnClickListener() {
         @Override
         public void onClick(View v) {
-            MyWebView.startActivity(v.getContext(),"https://www.baidu.com");
+            MyWebView.startActivity(v.getContext(), "https://www.baidu.com");
             if (onItemClickListener != null) {
                 if (factory == null || Util.isEmpty(factory.getData()) || getChildCount() == 0) {
                     onItemClickListener.onItemClickListener(null, null, -1);

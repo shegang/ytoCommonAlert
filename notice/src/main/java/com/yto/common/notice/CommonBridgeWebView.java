@@ -1,33 +1,22 @@
 package com.yto.common.notice;
 
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Bitmap;
 import android.net.Uri;
-import android.net.http.SslError;
 import android.os.Build;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.webkit.DownloadListener;
-import android.webkit.SslErrorHandler;
-import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.github.lzyzsd.jsbridge.BridgeHandler;
 import com.github.lzyzsd.jsbridge.BridgeWebView;
-import com.github.lzyzsd.jsbridge.CallBackFunction;
 import com.github.lzyzsd.jsbridge.DefaultHandler;
 
 public class CommonBridgeWebView extends AppCompatActivity {

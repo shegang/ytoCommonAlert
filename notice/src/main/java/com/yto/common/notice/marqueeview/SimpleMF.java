@@ -1,6 +1,7 @@
 package com.yto.common.notice.marqueeview;
 
 import android.content.Context;
+import android.text.Html;
 import android.widget.TextView;
 
 /**
@@ -14,7 +15,7 @@ public class SimpleMF<E extends CharSequence> extends MarqueeFactory<TextView, E
     @Override
     public TextView generateMarqueeItemView(E data) {
         TextView mView = new TextView(mContext);
-        mView.setText(data);
+        mView.setText(Html.fromHtml(data.toString()));
         return mView;
     }
 }

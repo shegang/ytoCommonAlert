@@ -2,6 +2,7 @@ package com.yto.common.noticeappdemo;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.yto.common.notice.api.DataCallBack;
 import com.yto.common.notice.api.RetrofitUtil;
+import com.yto.common.notice.api.requestparameter.RequestParameter;
 import com.yto.common.notice.marqueeview.MarqueeFactory;
 import com.yto.common.notice.marqueeview.MarqueeView;
 import com.yto.common.notice.marqueeview.NoticeManager;
@@ -22,17 +24,15 @@ import com.yto.common.notice.marqueeview.util.OnItemClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import dialog.BindViewHolder;
 import dialog.DialogManager;
-import dialog.OnBindViewListener;
-import dialog.OnViewClickListener;
-import dialog.SGDialog;
 
 public class MainActivity extends AppCompatActivity {
     private MarqueeView<RelativeLayout, ComplexItemEntity> marqueeView;
-    private SimpleMarqueeView<String> marqueeView2;
+    private SimpleMarqueeView marqueeView2;
 
     private NoticeManager noticeManager;
+    private Activity activity;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,7 +43,15 @@ public class MainActivity extends AppCompatActivity {
                 .init(marqueeView2)
                 .create();
         initMarqueeView();
-        new DialogManager(getSupportFragmentManager()).init(this);
+        RequestParameter parameter = new RequestParameter();
+        parameter.setAppCode("bc7c151dbe8c45c8a3ce486d64d76bd7");
+        parameter.setAppSecret("2690d6b105");
+        parameter.setUserCode("01653893");
+        parameter.setUserName("曾超");
+        new DialogManager.Builder(getSupportFragmentManager(), this)
+                .setParameter(parameter)
+                .create();
+
     }
 
     private void initMarqueeView() {
@@ -66,28 +74,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void homeBannerDialog(View view) {
-        new SGDialog.Builder(getSupportFragmentManager())
-                .setLayoutRes(R.layout.dialog_home_ad)
-                .setScreenHeightAspect(this, 0.7f)
-                .setScreenWidthAspect(this, 0.8f)
-                .setOnBindViewListener(new OnBindViewListener() {
-                    @Override
-                    public void bindView(BindViewHolder viewHolder) {
-
-                    }
-                })
-                .addOnClickListener(R.id.iv_close, R.id.iv_icon)
-                .setOnViewClickListener(new OnViewClickListener() {
-                    @Override
-                    public void onViewClick(BindViewHolder viewHolder, View view, SGDialog tDialog) {
-                        if (view.getId() == R.id.iv_icon) {
-                            //可对图片进行修改
-                            Toast.makeText(MainActivity.this, "点击了图片", Toast.LENGTH_LONG).show();
-                        }
-                        tDialog.dismiss();
-                    }
-                })
-                .create()
-                .show();
+        RequestParameter parameter = new RequestParameter();
+        parameter.setAppCode("bc7c151dbe8c45c8a3ce486d64d76bd7");
+        parameter.setAppSecret("2690d6b105");
+        parameter.setUserCode("01653893");
+        parameter.setUserName("曾超");
+        new DialogManager.Builder(getSupportFragmentManager(), this)
+                .setParameter(parameter)
+                .create();
     }
+
+
 }

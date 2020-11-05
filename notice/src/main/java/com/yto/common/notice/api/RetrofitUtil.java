@@ -33,7 +33,7 @@ public class RetrofitUtil {
     private Retrofit mRetrofit;
     private ApiService apiService;
     private int timeout = 30;
-    private String baseUrl = "https://api.apiopen.top/";
+    private String baseUrl = "http://192.168.207.21:8766/";
 
 //    private final String baseUrl = "http://192.168.201.67:8081/steward/app/";
     private RetrofitUtil() {
@@ -75,7 +75,6 @@ public class RetrofitUtil {
             Request request = chain.request()
                     .newBuilder()
                     .addHeader("Content-Type", "application/json; charset=UTF-8")
-                    .addHeader("Authorization", "")
                     .build();
 
             //打印请求信息
@@ -83,24 +82,6 @@ public class RetrofitUtil {
                 String strRequestInfo = String.format("Method:%s\nHeaders:%s\nUrl:%s\nBody:%s", request.method(), request.headers(), request.url(), getParam(request.body()));
 //                LogUtils.log("NetRequest:",strRequestInfo);
             }
-            //https://blog.csdn.net/zhang_110326/article/details/89217373参考
-//            okhttp3.Response response = chain.proceed(request);//这个不能在这里调用，因为会导致接口请求出现两次
-//            //返回信息
-//            ResponseBody responseBody = response.body();
-//            BufferedSource source = responseBody.source();
-//            source.request(Long.MAX_VALUE); // Buffer the entire body.
-//            Buffer buffer = source.buffer();
-//            Charset charset = UTF8;
-//            MediaType contentType = responseBody.contentType();
-//            if (contentType != null) {
-//                charset = contentType.charset(UTF8);
-//            }
-//            //打印响应结果
-//            if (BuildConfig.DEBUG) {
-//                String bodyString = buffer.clone().readString(charset);
-//                Log.d("NetResponse:",bodyString);
-//            }
-
             return chain.proceed(request);
         }
     };
@@ -122,9 +103,9 @@ public class RetrofitUtil {
                         }
                         try {
                             JSONObject resultJson = new JSONObject(result);
-                            if (resultJson.getInt("code") == 200) {
-                                if (resultJson.has("result")) {
-                                    dataCallBack.success(resultJson.getString("message"), resultJson.getString("result"));
+                            if (resultJson.getInt("status") == 0) {
+                                if (resultJson.has("data")) {
+                                    dataCallBack.success(resultJson.getString("message"), resultJson.getString("data"));
                                 }
                                 else{
                                     dataCallBack.success(resultJson.getString("message"), "");
@@ -143,6 +124,7 @@ public class RetrofitUtil {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
+                String error = t.toString();
             }
         });
     }

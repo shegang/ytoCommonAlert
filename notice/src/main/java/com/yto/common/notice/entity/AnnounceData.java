@@ -26,7 +26,7 @@ public class AnnounceData implements Serializable {
     private String staffCode;//":"02011740"
     private String staffName;//":"胡秦霞",
     private String ifPopUp;//":1,
-    private String checkChoice;//":1,
+    private String checkChoice;//":1,'查看选项1强制0不强制',
     private String startTime;//":"2020-10-2
     private String endTime;//":"2020-10-27
     private String viewCount;//":0,

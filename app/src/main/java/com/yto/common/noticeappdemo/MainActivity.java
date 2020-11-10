@@ -23,6 +23,7 @@ import com.yto.common.notice.marqueeview.util.OnItemClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import dialog.DialogManager;
 
@@ -44,12 +45,15 @@ public class MainActivity extends AppCompatActivity {
                 .create();
         initMarqueeView();
         RequestParameter parameter = new RequestParameter();
-        parameter.setAppCode("bc7c151dbe8c45c8a3ce486d64d76bd7");
-        parameter.setAppSecret("2690d6b105");
-        parameter.setUserCode("01653893");
-        parameter.setUserName("曾超");
+        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
+        parameter.setAppSecret("d729fdcdc8");
+        parameter.setUserCode("1367916926"+Math.random()*9);
+        parameter.setUserName("zc");
         new DialogManager.Builder(getSupportFragmentManager(), this)
                 .setParameter(parameter)
+                .setTitleColor("#FFC107")
+                .setTitleBarBgColor("#F62D2D")
+                .setBackImageColor("#FFC107")
                 .create();
 
     }
@@ -75,12 +79,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void homeBannerDialog(View view) {
         RequestParameter parameter = new RequestParameter();
-        parameter.setAppCode("bc7c151dbe8c45c8a3ce486d64d76bd7");
-        parameter.setAppSecret("2690d6b105");
-        parameter.setUserCode("01653893");
-        parameter.setUserName("曾超");
+        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
+        parameter.setAppSecret("d729fdcdc8");
+
+        parameter.setUserCode("1367916926"+Math.random()*9);
+        parameter.setUserName("zc");
         new DialogManager.Builder(getSupportFragmentManager(), this)
                 .setParameter(parameter)
+                .setTitleColor("#FFC107")
+                .setTitleBarBgColor("#F62D2D")
+                .setBackImageColor("#FFC107")
                 .create();
     }
 

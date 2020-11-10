@@ -48,6 +48,7 @@ public class PopAnnounceData implements Serializable {
      */
     private String announceToken;
     private AnnounceData announce;
+    private String detailUrl;
 
     public String getAnnounceToken() {
         return announceToken;
@@ -65,5 +66,11 @@ public class PopAnnounceData implements Serializable {
         this.announce = announce;
     }
 
+    public String getDetailUrl() {
+        return detailUrl;
+    }
 
+    public void setDetailUrl(String detailUrl) {
+        this.detailUrl = detailUrl;
+    }
 }

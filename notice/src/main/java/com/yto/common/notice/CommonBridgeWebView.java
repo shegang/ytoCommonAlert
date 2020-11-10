@@ -13,6 +13,7 @@ import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,12 +27,16 @@ public class CommonBridgeWebView extends AppCompatActivity {
     protected WebViewClient webViewClient;
     protected ProgressBar progressBar;
     protected RelativeLayout rl_loading_faild;
+    protected RelativeLayout rl_title;
     protected ImageView iv_back;
+    protected TextView tv_title;
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
         webView = (BridgeWebView) findViewById(R.id.webView);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        rl_title = findViewById(R.id.rl_title);
+        tv_title = findViewById(R.id.tv_title);
         iv_back = findViewById(R.id.iv_back);
         rl_loading_faild = (RelativeLayout) findViewById(R.id.rl_loading_faild);
         if (webView != null) {

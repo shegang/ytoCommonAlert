@@ -31,7 +31,7 @@
             android:layout_marginRight="20dp"
             android:gravity="center"
             android:text=""
-            android:textColor="#333333"
+            android:textColor="#ffffff"
             android:textSize="16sp" />
 
         <Button

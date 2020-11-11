@@ -55,7 +55,7 @@ public class MyWebView extends CommonBridgeWebView {
             titleBarColor = bundle.getString(KEY_BAR_COLOR);
             backColor = bundle.getString(KEY_BACK_COLOR);
         }
-        tv_title.setText(title+title+title+title+title);
+        tv_title.setText(title);
         if(!TextUtils.isEmpty(titleColor)){
             tv_title.setTextColor(Color.parseColor(titleColor));
         }

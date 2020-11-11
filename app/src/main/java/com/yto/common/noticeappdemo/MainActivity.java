@@ -47,8 +47,8 @@ public class MainActivity extends AppCompatActivity {
         RequestParameter parameter = new RequestParameter();
         parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
         parameter.setAppSecret("d729fdcdc8");
-//        parameter.setUserCode("1367916926"+Math.random()*9);
-        parameter.setUserCode("13679169261");
+        parameter.setUserCode("1367916926"+Math.random()*9);
+//        parameter.setUserCode("13679169261");
         parameter.setUserName("zc");
         new DialogManager.Builder(getSupportFragmentManager(), this)
                 .setParameter(parameter)

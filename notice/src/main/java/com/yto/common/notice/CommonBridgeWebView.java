@@ -11,6 +11,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -27,7 +28,7 @@ public class CommonBridgeWebView extends AppCompatActivity {
     protected WebViewClient webViewClient;
     protected ProgressBar progressBar;
     protected RelativeLayout rl_loading_faild;
-    protected RelativeLayout rl_title;
+    protected LinearLayout rl_title;
     protected ImageView iv_back;
     protected TextView tv_title;
     @Override

@@ -29,8 +29,10 @@ public class CommonBridgeWebView extends AppCompatActivity {
     protected ProgressBar progressBar;
     protected RelativeLayout rl_loading_faild;
     protected LinearLayout rl_title;
+    protected LinearLayout ll_left_back;
     protected ImageView iv_back;
     protected TextView tv_title;
+
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
@@ -39,11 +41,22 @@ public class CommonBridgeWebView extends AppCompatActivity {
         rl_title = findViewById(R.id.rl_title);
         tv_title = findViewById(R.id.tv_title);
         iv_back = findViewById(R.id.iv_back);
+        ll_left_back = findViewById(R.id.ll_left_back);
         rl_loading_faild = (RelativeLayout) findViewById(R.id.rl_loading_faild);
         if (webView != null) {
             initWebView();
             initWebChromeClient();
         }
+        ll_left_back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (webView.canGoBack()) {
+                    webView.goBack();
+                } else {
+                    finish();
+                }
+            }
+        });
         iv_back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

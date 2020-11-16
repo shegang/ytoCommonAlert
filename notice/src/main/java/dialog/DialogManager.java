@@ -1,9 +1,11 @@
 package dialog;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.text.Html;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -67,6 +69,19 @@ public class DialogManager {
 //                        .setScreenHeightAspect(context, 0.7f)
                         .setScreenWidthAspect(context, 0.8f)
                         .setCancelableOutside(false)
+                        .setOnKeyListener(new DialogInterface.OnKeyListener() {
+                            @Override
+                            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+
+                                if (keyCode == KeyEvent.KEYCODE_BACK) {
+                                    if (popAnnounceData.getAnnounce().getCheckChoice().equals("1")) {//checkChoice查看选项1强制0不强制',
+//                                        Toast.makeText(context, "强制按返回键无效", Toast.LENGTH_LONG).show();
+                                        return true;
+                                    }
+                                }
+                                return false;
+                            }
+                        })
                         .setOnBindViewListener(new OnBindViewListener() {
                             @Override
                             public void bindView(BindViewHolder viewHolder) {
@@ -98,7 +113,7 @@ public class DialogManager {
                                             MyWebView.startActivity(context, popAnnounceData.getDetailUrl(), popAnnounceData.getAnnounce().getAnnounceName(),
                                                     titleColor, titleBarColor, backImageColor);
                                         } else {
-                                            MyWebView.startActivity(context, popAnnounceData.getDetailUrl(), "",titleColor, titleBarColor, backImageColor);
+                                            MyWebView.startActivity(context, popAnnounceData.getDetailUrl(), "", titleColor, titleBarColor, backImageColor);
                                         }
 
                                     }

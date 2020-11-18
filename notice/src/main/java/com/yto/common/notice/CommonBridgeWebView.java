@@ -28,7 +28,7 @@ public class CommonBridgeWebView extends AppCompatActivity {
     protected WebViewClient webViewClient;
     protected ProgressBar progressBar;
     protected RelativeLayout rl_loading_faild;
-    protected LinearLayout rl_title;
+    protected RelativeLayout rl_title;
     protected LinearLayout ll_left_back;
     protected ImageView iv_back;
     protected TextView tv_title;

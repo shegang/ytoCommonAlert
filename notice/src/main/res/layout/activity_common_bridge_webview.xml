@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/rl_title"
         android:layout_width="match_parent"
         android:layout_height="44dp"
@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:id="@+id/ll_left_back"
-            android:layout_width="80dp"
+            android:layout_width="45dp"
             android:layout_height="match_parent"
             android:gravity="center_vertical">
 
@@ -35,7 +35,8 @@
             android:id="@+id/tv_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="45dp"
             android:layout_marginRight="15dp"
             android:ellipsize="end"
             android:gravity="center"
@@ -43,7 +44,7 @@
             android:text=""
             android:textColor="#ffffff"
             android:textSize="17sp" />
-    </LinearLayout>
+    </RelativeLayout>
 
     <ProgressBar
         android:id="@+id/progressBar"

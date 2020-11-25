@@ -44,9 +44,15 @@ public class MainActivity extends AppCompatActivity {
                 .init(marqueeView2)
                 .create();
         initMarqueeView();
+
+        //appCode=26e80fd95baa4256aa2360514f606bb4，AppSecret=446c771e62  生产环境易拣通
         RequestParameter parameter = new RequestParameter();
-        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
-        parameter.setAppSecret("d729fdcdc8");
+//        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
+//        parameter.setAppSecret("d729fdcdc8");
+
+        parameter.setAppCode("26e80fd95baa4256aa2360514f606bb4");
+        parameter.setAppSecret("446c771e62");
+
         parameter.setUserCode("1367916926"+Math.random()*9);
 //        parameter.setUserCode("13679169261");
         parameter.setUserName("zc");
@@ -80,8 +86,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void homeBannerDialog(View view) {
         RequestParameter parameter = new RequestParameter();
-        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
-        parameter.setAppSecret("d729fdcdc8");
+        parameter.setAppCode("26e80fd95baa4256aa2360514f606bb4");
+        parameter.setAppSecret("446c771e62");
 
 //        parameter.setUserCode("1367916926"+Math.random()*9);
         parameter.setUserCode("13679169261");

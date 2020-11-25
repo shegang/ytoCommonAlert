@@ -33,7 +33,8 @@ public class RetrofitUtil {
     private Retrofit mRetrofit;
     private ApiService apiService;
     private int timeout = 30;
-    private String baseUrl = "http://192.168.207.21:8766/";
+//    private String baseUrl = "http://192.168.207.21:8766/";//测试环境
+    private String baseUrl = "http://ann.yto.net.cn:18766/";//生产环境
 
 //    private final String baseUrl = "http://192.168.201.67:8081/steward/app/";
     private RetrofitUtil() {

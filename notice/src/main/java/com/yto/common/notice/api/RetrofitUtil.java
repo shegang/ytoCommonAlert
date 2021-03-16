@@ -4,6 +4,7 @@ package com.yto.common.notice.api;
 
 
 import com.yto.common.notice.BuildConfig;
+import com.yto.common.notice.NoticeConfig;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,10 +34,11 @@ public class RetrofitUtil {
     private Retrofit mRetrofit;
     private ApiService apiService;
     private int timeout = 30;
-//    private String baseUrl = "http://192.168.207.21:8766/";//测试环境
-    private String baseUrl = "http://ann.yto.net.cn:18766/";//生产环境
+    private String testBaseUrl = "http://192.168.207.21:18768/";//测试环境  18768
+    private String releaseBaseUrl = "http://ann.yto.net.cn:18768/";//生产环境
 
 //    private final String baseUrl = "http://192.168.201.67:8081/steward/app/";
+
     private RetrofitUtil() {
         OkHttpClient.Builder httpClientBuilder = new OkHttpClient.Builder();
         httpClientBuilder.addInterceptor(httpInterceptor);
@@ -46,7 +48,7 @@ public class RetrofitUtil {
         OkHttpClient httpClient = httpClientBuilder.build();
 
         mRetrofit = new Retrofit.Builder()
-                .baseUrl(baseUrl)
+                .baseUrl(NoticeConfig.isIsRelease() ?releaseBaseUrl:testBaseUrl)
                 .addConverterFactory(GsonConverterFactory.create())
                 .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                 .client(httpClient)

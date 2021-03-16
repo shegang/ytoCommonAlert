@@ -28,8 +28,6 @@ import retrofit2.Call;
 
 public class DialogManager {
 
-    private String htmlText = "<p>美国《国会山报》11月5日消息，特朗普和拜登竞选团队于当地时间周三向支持者发起募捐请求，双方竞选团队的募捐方式“截然不同”。</p><p>特朗普竞选团队发出一连串的电子邮件和短信，敦促收件人捐款，同时指责民主党试图窃取选举。一封邮件的主题是“他们将试图窃取选举”。另一封邮件的主题是“就像我预测的那样”，其中包含以下信息：“我需要你们的帮助，以确保我们有资源保护选举结果。我们不能让左翼暴徒破坏我们的选举。我要求我最激烈和最忠诚的捍卫者，比如你们，展开反击！”</p><p>拜登的募捐主题则是“确保每一张选票都被计算在内”。拜登早些时候在推特发文称：“特朗普和我都不能决定这次选举的结果。结果由美国人民决定。这就是为什么我们发起了‘拜登斗争基金’——确保每一张选票都被计算在内。”</p>";
-
     private FragmentManager fragmentManager;
     private Context context;
 
@@ -38,6 +36,7 @@ public class DialogManager {
     private String titleBarColor;
     private String titleColor;
     private String backImageColor;
+    private boolean isRelease = true;
 
     public DialogManager(FragmentManager fragmentManager, Context context) {
         this.fragmentManager = fragmentManager;

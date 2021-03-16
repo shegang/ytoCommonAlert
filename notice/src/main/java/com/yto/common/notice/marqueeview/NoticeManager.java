@@ -20,6 +20,7 @@ public class NoticeManager {
     private MarqueeView marqueeView;
     private Context context;
 
+
     private NoticeManager(Context context) {
         this.context = context;
     }
@@ -37,7 +38,7 @@ public class NoticeManager {
                 Gson gson = new Gson();
 //                List<ComplexItemEntity> list = gson.fromJson(result, new TypeToken<List<ComplexItemEntity>>() {
 //                }.getType());
-                RollAnnounceDataList rollAnnounceDataList = gson.fromJson(result,RollAnnounceDataList.class);
+                RollAnnounceDataList rollAnnounceDataList = gson.fromJson(result, RollAnnounceDataList.class);
                 List<AnnounceData> list = rollAnnounceDataList.getAnnounceList();
                 List<String> data = new ArrayList<>();
                 for (AnnounceData entity : list) {
@@ -45,7 +46,7 @@ public class NoticeManager {
                 }
                 SimpleMF simpleMF = new SimpleMF(context);
                 simpleMF.setData(data);
-                if(marqueeView != null){
+                if (marqueeView != null) {
                     marqueeView.setMarqueeFactory(simpleMF);
                     marqueeView.startFlipping();
                 }
@@ -69,6 +70,8 @@ public class NoticeManager {
             manager.marqueeView = marqueeView;
             return this;
         }
+
+
 
         public NoticeManager create() {
             manager.requestData();

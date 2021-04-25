@@ -1,5 +1,6 @@
 package com.yto.common.notice.api;
 
+import com.yto.common.notice.api.requestparameter.CommonParameter;
 import com.yto.common.notice.api.requestparameter.RequestParameter;
 
 import okhttp3.ResponseBody;
@@ -15,8 +16,8 @@ public interface ApiService {
     @POST("announce/announceAppPc/appRollingAnnounceList")
     Call<ResponseBody> getRollAnnounceList(@Body RequestParameter parameter);
 
-    @POST("announce/announceAppPc/appPopAnnounceList")
-    Call<ResponseBody> getPopAnnounceList(@Body RequestParameter parameter);
+    @POST("announce/announceSurface/appPopAnnounces")
+    Call<ResponseBody> getPopAnnounceList(@Body CommonParameter parameter);
 
 
 }

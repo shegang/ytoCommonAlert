@@ -34,8 +34,8 @@ public class RetrofitUtil {
     private Retrofit mRetrofit;
     private ApiService apiService;
     private int timeout = 30;
-    private String testBaseUrl = "http://192.168.207.21:18768/";//测试环境  18768
-    private String releaseBaseUrl = "http://ann.yto.net.cn:18768/";//生产环境
+    private String testBaseUrl = "http://192.168.207.21:18767/";//测试环境  18768
+    private String releaseBaseUrl = "http://ann.yto.net.cn:18767/";//生产环境
 
 //    private final String baseUrl = "http://192.168.201.67:8081/steward/app/";
 

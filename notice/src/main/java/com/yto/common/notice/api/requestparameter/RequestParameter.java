@@ -13,6 +13,8 @@ public class RequestParameter {
     private String appSecret;//
     private String userCode;//"
     private String userName;//"
+    private String token;
+    private String source;
 
     public String getAppCode() {
         return appCode;
@@ -44,5 +46,21 @@ public class RequestParameter {
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
+
+    public String getSource() {
+        return source;
+    }
+
+    public void setSource(String source) {
+        this.source = source;
     }
 }

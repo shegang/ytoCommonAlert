@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
         marqueeView = findViewById(R.id.marqueeView);
         marqueeView2 = findViewById(R.id.marqueeView2);
 
-        NoticeConfig.setIsRelease(true);
+        NoticeConfig.setIsRelease(false);
 
         noticeManager = new NoticeManager.Builder(this)
                 .init(marqueeView2)
@@ -49,10 +49,13 @@ public class MainActivity extends AppCompatActivity {
 
         //appCode：688d1c03959c4553b48e2a524273d52f
         //AppSecret：P220115035
-        parameter.setAppCode("688d1c03959c4553b48e2a524273d52f");
-        parameter.setAppSecret("P220115035");
+        parameter.setAppCode("9f3e2da25f69447e99effec111c0bbb2");
+        parameter.setAppSecret("0062565893");
+        parameter.setSource("PORTAL");
+        parameter.setToken("Portal-eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ7XCJAdHlwZVwiOlwiY24ueXRvLnBvcnRhbC5hdXRob3JpdHkudm8uVXNlclZvXCIsXCJiZWxvbmdPcmdDb2RlXCI6XCIyMTAwNDVcIixcImJlbG9uZ09yZ05hbWVcIjpcIuS4iua1t-W4gumdmeWuieWMuumdmeWuiemXqFwiLFwiYmVsb25nT3JnVHlwZVwiOlwiQlJBTkNIXCIsXCJjZWxscGhvbmVcIjpcIjEzOTM2OTQ2MTQ2XCIsXCJvcmdDb2RlXCI6XCIyMTAwNDVcIixcIm9yZ05hbWVcIjpcIuS4iua1t-W4gumdmeWuieWMuumdmeWuiemXqFwiLFwib3JnVHlwZVwiOlwiQlJBTkNIXCIsXCJwYXNzd29yZFwiOlwicjkwTFN0THNGeXhZYmlGUWR3Ky9uZz09XCIsXCJwYXNzd29yZFRlcm1pbmFsXCI6XCIwSmNIRkhWM2crYlBGN0p2dU9JcGp3PT1cIixcInVzZXJDb2RlXCI6XCIwMDAwMzUyMFwiLFwidXNlck5hbWVcIjpcIuael-eIseWFsHRlc3RcIn0iLCJqdGkiOiJhOTc5NTYxZC0xNjE2LTQ5MTctYjMzOS01NzRmMDg2NTAyMjQiLCJpYXQiOjE2MTkzNDE3NjMsImV4cCI6MTYxOTM1NjE2M30.-OdMj67W1UDOgMAmuBB49ksS3YwoDQJg_8MNp2sONEgmsCc3CwPG1ePajzpy7KPKsHfzM-2BXtJiTb5jFXymDA");
 
-        parameter.setUserCode("01653893"+Math.random()*9);
+//        parameter.setUserCode("01653893"+Math.random()*9);
+        parameter.setUserCode("01653893");
 //        parameter.setUserCode("13679169261");
         parameter.setUserName("sg");
 

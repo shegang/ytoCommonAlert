@@ -19,9 +19,13 @@ import com.google.gson.Gson;
 import com.yto.common.notice.MyWebView;
 import com.yto.common.notice.R;
 import com.yto.common.notice.api.DataCallBack;
+import com.yto.common.notice.api.DataSignatureUtils;
 import com.yto.common.notice.api.RetrofitUtil;
+import com.yto.common.notice.api.requestparameter.CommonParameter;
+import com.yto.common.notice.api.requestparameter.LogisticsInterfaceParameter;
 import com.yto.common.notice.api.requestparameter.RequestParameter;
 import com.yto.common.notice.entity.PopAnnounceData;
+import com.yto.common.notice.util.DateUtil;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -54,7 +58,25 @@ public class DialogManager {
 //        parameter.setAppSecret("2690d6b105");
 //        parameter.setUserCode("01653893");
 //        parameter.setUserName("曾超");
-        Call<ResponseBody> call = RetrofitUtil.getInstance().getApiService().getPopAnnounceList(parameter);
+        LogisticsInterfaceParameter logisticsInterfaceParameter = new LogisticsInterfaceParameter();
+        logisticsInterfaceParameter.setUserCode(parameter.getUserCode());
+        logisticsInterfaceParameter.setToken(parameter.getToken());
+        logisticsInterfaceParameter.setSource(parameter.getSource());
+        Gson gson = new Gson();
+        String jsonStr = gson.toJson(logisticsInterfaceParameter);
+        String currentDate = DateUtil.getStringByFormat(System.currentTimeMillis(),"yyyyMMddHHmmss");
+//        String requestParameter = jsonStr+parameter.getAppSecret()+System.currentTimeMillis();
+        String dataDigest = DataSignatureUtils.getDataSignature(jsonStr, parameter.getAppSecret(), currentDate);
+        Log.i("requestParameter", dataDigest);
+        CommonParameter commonParameter = new CommonParameter();
+        commonParameter.setAppCode(parameter.getAppCode());
+        commonParameter.setCurrentDate(currentDate);
+        commonParameter.setDataDigest(dataDigest);
+//        commonParameter.setCurrentDate("20210425162319");
+//        commonParameter.setDataDigest("vAj/rV9I5vjQj8vnvkPSbg==");
+        commonParameter.setLogisticsInterface(jsonStr);
+
+        Call<ResponseBody> call = RetrofitUtil.getInstance().getApiService().getPopAnnounceList(commonParameter);
         RetrofitUtil.getInstance().requestMode(call, new DataCallBack() {
             @Override
             public void success(String msg, String result) {
